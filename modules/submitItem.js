@@ -7,8 +7,9 @@ module.exports = function (req, res) {
     })
     req.on("end", function () {
         str=JSON.parse(str)
-       
-        let sql = `INSERT INTO temporary(item_type,url,title,date,content,user) values('${str.item_type}','${str.url}','${str.title}','${str.date}','${str.content}','${str.user}')`
+       //console.log(str.sno)
+    
+        let sql = `INSERT INTO temporary(item_type,url,title,date,content,user,sno) values('${str.item_type}','${str.url}','${str.title}','${str.date}','${str.content}','${str.user}','${str.sno}')`
         connection.query(sql, (err, result) => {
             
             if (err) {

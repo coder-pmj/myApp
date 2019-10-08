@@ -9,8 +9,8 @@ module.exports = function (req, res) {
     req.on("end", function () {
         str = JSON.parse(str)
         //console.log(str)
-        let addSql = `INSERT INTO email(user,content,date,sendfrom,obj,flag)
-         values('${str.user}','${str.content}','${str.date}','${str.sendfrom}','${str.obj}','0')`
+        let addSql = `INSERT INTO email(user,content,date,sendfrom,obj,sno,flag)
+         values('${str.user}','${str.content}','${str.date}','${str.sendfrom}','${str.obj}','${str.sno}','0')`
         connection.query(addSql, (err) => {
             if (err) {
                 res.send({

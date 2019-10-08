@@ -15,6 +15,7 @@ module.exports = function (req, res) {
 
     connection.query('select * from temporary', (err, result) => {
         if (result.length) {
+            //console.log(result)
             success.data = result
             res.send(success)
         } else {
